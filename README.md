@@ -36,12 +36,15 @@ Este tutorial explica como executar e utilizar o projeto **Sorteio da Taça Libe
 
 Antes de começar, certifique-se de que seu ambiente atenda aos seguintes pré-requisitos:
 
-- **Python**: O projeto é escrito em Python, portanto, você deve ter o Python 3.x instalado. Você pode baixá-lo em [python.org](https://www.python.org/downloads/).
+- **Python**:  Certifique-se de que você tenha o Python 3 ou superior instalado no seu sistema. Você pode baixar a versão mais recente em [python.org](https://www.python.org/downloads/).
 
-- **Bibliotecas Python**: Certifique-se de ter as bibliotecas Python necessárias instaladas. Você pode instalá-las usando o `pip`:
+- **Bibliotecas Python**:  O projeto utiliza várias bibliotecas Python, incluindo `random`, `tkinter`, `Pillow (PIL)`, e `os`. Se você ainda não possui essas bibliotecas instaladas, você pode instalá-las usando o `pip` com os seguintes comandos:
 
   ```bash
-  pip install tkinter Pillow
+  pip install random
+  pip install tkinter
+  pip install Pillow
+  pip install os
 
 ### Como Executar o Projeto
 
