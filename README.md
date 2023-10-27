@@ -24,6 +24,42 @@ A motivação por trás do Sorteio da Taça Libertadores é:
 
 O Sorteio da Taça Libertadores é muito mais do que um procedimento burocrático; é o começo de uma jornada emocionante para as equipes e uma celebração do esporte em toda a América do Sul.
 
-### Participante
+## Fluxograma e Diagrama de classes e relacionamentos
+
+Vide arquivos no repositório: Fluxograma.png e Diagrama_de_classes_e_relacionamentos.png
+
+## Execução de Tutorial com Resumo Descritivo/Explicativo
+
+Este tutorial explica como executar e utilizar o projeto **Sorteio da Taça Libertadores**. Siga as instruções abaixo para começar.
+
+### Pré-Requisitos
+
+Antes de começar, certifique-se de que seu ambiente atenda aos seguintes pré-requisitos:
+
+- **Python**: O projeto é escrito em Python, portanto, você deve ter o Python 3.x instalado. Você pode baixá-lo em [python.org](https://www.python.org/downloads/).
+
+- **Bibliotecas Python**: Certifique-se de ter as bibliotecas Python necessárias instaladas. Você pode instalá-las usando o `pip`:
+
+  ```bash
+  pip install tkinter Pillow
+
+### Como Executar o Projeto
+
+- **Clone o Repositório**: Comece clonando este repositório para o seu computador: git clone https://github.com/Inacio21026/INACIO_libertadores.git
+
+- **Navegue até o Diretório do Projeto**: Use o terminal (ou prompt de comando) para entrar no diretório do projeto: cd PEEInácio.py
+
+- **Execute o Projeto**: Agora, você pode executar o projeto com o seguinte comando: python sorteio_libertadores.py
+
+- **Interaja com a Interface**: Siga as instruções na interface gráfica para escolher os times, realizar o sorteio e visualizar os resultados.
+
+## Notas Adicionais
+- **1**: O usuário pode escolher até 8 times por país para um total de 32 times no sorteio.
+- **2**: Se o usuário quiser selecionar mais de um time por vez, basta separar os nomes dos times por vírgulas.
+- **3**: Clique no botão "Realizar Sorteio" para gerar os grupos da Taça Libertadores.
+- **4**: O resultado do sorteio será exibido na interface.
+
+
+## Participante
 
 INÁCIO
