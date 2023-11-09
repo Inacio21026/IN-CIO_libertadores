@@ -62,6 +62,19 @@ Antes de começar, certifique-se de que seu ambiente atenda aos seguintes pré-r
 - **3**: Clique no botão "Realizar Sorteio" para gerar os grupos da Taça Libertadores.
 - **4**: O resultado do sorteio será exibido na interface.
 
+## Demonstração do Aplicativo
+
+Aqui estão algumas capturas de tela do Sorteio da Taça Libertadores em ação:
+
+![Captura de Tela 1](Imagens/Tela_Inicial.png)
+*Tela Inicial que da as instruções ao usuário.*
+
+![Captura de Tela 2](Imagens/Tela_de_seleção.png)
+*Aqui, o usuário seleciona 32 times e realiza o sorteio, lembre-se que os times para o usuário escolher no aplicativo são só os principais de cada país, mas o usuário pode digitar na aba dos times o nome de algum clube em específico. Também cabe ressaltar, como já explicado anteriormente, o usuário pode selecionar mais de 1 time por vez, após escolher o país, o usuário pode escrever na aba dos time da seguinte forma: 'Fluminense,Palmeiras,Gremio,a,b,c' dessa forma ao clicar em adicionar time, 6 times serão adicionados de uma vez e o aplicativo reconhecerá 'a', 'b' e 'c' como times reais do Brasil, isso aumenta a liberdade do usuário.*
+
+![Captura de Tela 3](Imagens/grupos.png)
+![Captura de Tela 4](Imagens/gruposs.png)
+*Resultado do sorteio*
 
 ## Participante
 
