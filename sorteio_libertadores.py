@@ -5,9 +5,27 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
 
+def toggle_fullscreen(event=None):
+    state = not root.attributes('-fullscreen')
+    root.attributes('-fullscreen', state)
+    if state:
+        # Criar uma nova janela simulando a tela cheia com a cor de fundo desejada
+        fullscreen_window = tk.Toplevel(root)
+        fullscreen_window.attributes('-fullscreen', True)
+        fullscreen_window.configure(bg='blue')  # Cor de fundo desejada ao entrar em tela cheia
+        fullscreen_window.bind('<Escape>', lambda e: fullscreen_window.destroy())  # Fechar ao pressionar ESC
+    else:
+        root.attributes('-fullscreen', False)
+
 # Criar janela principal
 root = tk.Tk()
 root.title("Sorteio da Libertadores")
+root.configure(bg='green')  # Definir cor de fundo padrão
+
+# Configurar o tema da ttk explicitamente
+style = ttk.Style(root)
+style.configure('PaginaInicial.TFrame', background='green')  # Verde
+style.configure('PaginaSorteio.TFrame', background='#800020')  # Grená
 
 # Carregar a imagem do logo
 image = Image.open("logo.png")
@@ -26,7 +44,7 @@ def mostrar_instrucoes():
 def mostrar_tela_selecao():
     frame_instrucoes.pack_forget()
     frame_selecao.pack()
-    frame_titulo.pack_forget()  # Adicione esta linha para esquecer o frame_titulo
+    frame_titulo.pack_forget()
 
 # Definir o número de times por país e os times
 times_por_pais = {
@@ -60,7 +78,7 @@ def atualizar_lista_times(event):
         bandeira_label.image = imagens_bandeiras[pais]
     else:
         # Se não houver uma imagem de bandeira para o país, exiba uma imagem em branco
-        bandeira_em_branco = Image.open("bandeiras/em_branco.png")  # Coloque uma imagem em branco na pasta de bandeiras
+        bandeira_em_branco = Image.open("bandeiras/em_branco.png")  
         bandeira_em_branco = bandeira_em_branco.resize((30, 20), Image.BILINEAR)
         imagem_em_branco = ImageTk.PhotoImage(bandeira_em_branco)
         bandeira_label.config(image=imagem_em_branco)
@@ -81,7 +99,7 @@ def adicionar_time():
                 times_selecionados[pais].append(time.strip())
 
         atualizar_listbox()
-        update_contagem()  # Adiciona esta linha para atualizar a contagem
+        update_contagem()  
 
 # Função para remover time selecionado
 def remover_time():
@@ -93,7 +111,7 @@ def remover_time():
         times_selecionados[pais].remove(time)
     
     atualizar_listbox()
-    update_contagem()  # Adiciona esta linha para atualizar a contagem
+    update_contagem()  
 
 # Função para atualizar o Listbox
 def atualizar_listbox():
@@ -164,6 +182,10 @@ for pais in times_por_pais.keys():
 frame_selecao = ttk.Frame(root)
 frame_instrucoes = ttk.Frame(root)
 
+# Criar estruturas para organizar as telas
+frame_selecao = ttk.Frame(root, style='PaginaSorteio.TFrame')  # Grená
+frame_instrucoes = ttk.Frame(root, style='PaginaInicial.TFrame')  # Verde
+
 # Tela de instruções iniciais
 frame_instrucoes.pack()
 
@@ -173,6 +195,17 @@ frame_titulo.pack(pady=10)
 titulo_label = ttk.Label(frame_titulo, text="Bem-vindo ao Sorteio da Libertadores", image=photo, compound="left", font=("Helvetica", 16, "bold"))
 titulo_label.pack()
 
+# Adicionar mensagem e escudo
+mensagem_label = ttk.Label(frame_titulo, text="Atual Campeão: FLUMINENSE", font=("Helvetica", 12))
+mensagem_label.pack(side=tk.LEFT, padx=10)  
+
+# Adicionar escudo 
+escudo_fluminense = Image.open("fluminense.png")  
+escudo_fluminense = escudo_fluminense.resize((30, 30), Image.BILINEAR)
+imagem_escudo = ImageTk.PhotoImage(escudo_fluminense)
+escudo_label = ttk.Label(frame_titulo, image=imagem_escudo)
+escudo_label.image = imagem_escudo
+escudo_label.pack(side=tk.LEFT)
 instrucoes_label = ttk.Label(frame_instrucoes, text="Instruções:\n\n1. Escolha até no máximo 8 times por país, não é possível selecionar mais de 8 times por país.\n2. Selecione exatamente 32 times para realizar o sorteio.\n3. Para selecionar mais de um time por vez, escreva na aba dos times, logo após selecionar o país, os nomes dos times desejados, separando-os por vírgulas.\n4. É possível escrever o nome de times que não estão na aba principal dos times, nesta aba estão os times mais conhecidos de cada país para o usuário se situar.\n5. Clique em 'Iniciar Seleção' para começar.")
 instrucoes_label.pack()
 
@@ -215,6 +248,8 @@ resultado_text.pack()
 # Caixa de texto para exibir a contagem de times escolhidos
 contagem_text = tk.Text(frame_selecao, wrap=tk.WORD, width=40, height=5, state="disabled")
 contagem_text.pack()
+
+root.bind('<F11>', toggle_fullscreen)
 
 # Exibir a interface gráfica
 root.mainloop()
